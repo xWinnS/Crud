@@ -22,7 +22,9 @@
             $criar_produto->execute();
 
             if($criar_produto->rowCount() > 0){
-                echo "Produto criado com sucesso";
+                echo "<p> Produto criado com sucesso </p>";
+            }else{
+                echo "<p> Erro ao criar produto. Contate o suporte. </p>";
             }
             
         }
@@ -32,11 +34,11 @@
     <form name="f_adicionar" method="GET" action="criar_produto.php">
         <p>
             Descrição: 
-            <input type="text" size="50" name="f_name" autocomplete="off" require>
+            <input type="text" size="50" name="f_name" autocomplete="off" required>
         <p>
         <p>
             Tipo:
-            <select  name="f_tipo" require>
+            <select  name="f_tipo" required>
                 <option value="Processador">Processador</option>
                 <option value="Placa mãe">Placa mãe</option>
                 <option value="Placa de video">Placa de vídeo</option>
@@ -51,7 +53,7 @@
         </p>
         <p>
             Quantidade:
-            <input type="number" size="15" name="f_quantidade" require>
+            <input type="number" size="15" name="f_quantidade" required>
         </p>
         <input type="submit" name="f_submit" value="Criar">
     </form>

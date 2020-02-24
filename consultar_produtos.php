@@ -40,21 +40,38 @@
                 if($lista_produtos->rowCount() == 0){
                     echo "Não existem itens para o filtro: ".$filtro;
                 }else{
-                    echo "<br>"."Foram encontrados: ".$lista_produtos->rowCount()." iten(s) para o filtro: ".$filtro."<br>";
+                    echo "<br>"
+                    ."Foram encontrados: "
+                    .$lista_produtos->rowCount()
+                    ." iten(s) para o filtro: "
+                    .$filtro
+                    ."<br>";
                     while($linha=$lista_produtos->fetch(PDO::FETCH_ASSOC)){
-                        echo $linha['tipo']."<br>";
+                        echo " // ID: "
+                        .$linha['id']
+                        ." // "
+                        .$linha['tipo']
+                        ." // "
+                        .$linha['nome']
+                        ." // Estoque: "
+                        .$linha['quantidade']
+                        ."<br>";
                     }
                 }
-
-                
-
-
             }else{
                 $lista_produtos = $PDO -> prepare("SELECT * FROM produtos");
                 $lista_produtos->execute();
                 echo "Foram encontrados: ".$lista_produtos->rowCount()." Produtos."."<br>";
                 while($linha=$lista_produtos->fetch(PDO::FETCH_ASSOC)){
-                    echo $linha['tipo']."<br>";
+                    echo " // ID: "
+                    .$linha['id']
+                    ." // "
+                    .$linha['tipo']
+                    ." // "
+                    .$linha['nome']
+                    ." // Estoque: "
+                    .$linha['quantidade']
+                    ."<br>";
                 }      
             }
         }
